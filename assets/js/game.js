@@ -250,9 +250,12 @@ var playerInfo = {
 // start the game when the page loads
 startGame();
 
+// PROBLEMS ATM:
 
 // NEED TO FIX THE GAME SO THE BATTLE ASPECT WORKS NORMALLY
-
+// ENEMY ROBOT HEALTH IS NOT DECLARED (?) AND FIGHTS ARE SKIPPED OVER
+// INCORRECT VARIABLES (?) FOR "var fight = function (enemy)" CODE BLOCK (?)
+// INCORRECT VARIABLES (?) FOR "var startGame = function()" CODE BLOCK (?)
 
 // THINGS THAT WORK FINE ATM:
 
