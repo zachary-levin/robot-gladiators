@@ -21,10 +21,13 @@
     //console.log(enemyNames[i] + " is at " + i + " index");
 //}
 
+var randomNumber = function (min, max) {
+    var value = Math.floor(Math.random() * (max - min + 1) + min);
 
+    return value;
+};
 
 var fight = function (enemy) {
-    
     // repeat and execute as long as the enemy-robot is alive
     while(playerInfo.health > 0 && enemy.health > 0) {
         console.log("fight function fire ----> " , playerInfo.health + " " + enemy.health);
@@ -94,11 +97,7 @@ var fight = function (enemy) {
     }    
 };
 
-var randomNumber = function (min, max) {
-    var value = Math.floor(Math.random() * (21)) + 40;
 
-    return value;
-};
 
 // function to start a new game
 var startGame = function() {
@@ -118,7 +117,7 @@ for(var i = 0; i < enemyInfo.length; i++) {
     var pickedEnemyObj = enemyInfo[i];
 
     // reset enemy.health before starting new fight
-    pickedEnemyObj.health = randomNumber(70, 80);
+    pickedEnemyObj.health = randomNumber(40, 60);
 
     // use debugger to pause script from running and check what's going on at that moment in the code 
     // debugger;
@@ -205,7 +204,7 @@ var shop = function() {
 var playerInfo = { 
     name: window.prompt("What is your robot's name?"),
     health: 100,
-    attack: 5,
+    attack: 10,
     money: 10,
     reset: function () {
         this.health = 100;
