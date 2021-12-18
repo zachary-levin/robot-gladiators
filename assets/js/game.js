@@ -14,19 +14,23 @@
 //console.log(enemyNames[2]);
 //console.log(enemyNames.length);
 
-//for(var i = 0; i < enemy.length; i++) {
+//for(var i = 0; i < enemyInfo.length; i++) {
     
     //console.log(enemyNames[i]);
     //console.log(i);
     //console.log(enemyNames[i] + " is at " + i + " index");
 //}
 
+var randomNumber = function (min, max) {
+    var value = Math.floor(Math.random() * (max - min + 1) + min);
 
+    return value;
+};
 
 var fight = function (enemy) {
-    
     // repeat and execute as long as the enemy-robot is alive
-    while(playerInfo.health > 0 && enemy.Health > 0) {
+    while(playerInfo.health > 0 && enemy.health > 0) {
+        console.log("fight function fire ----> " , playerInfo.health + " " + enemy.health);
         var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' or 'SKIP' to choose.");
     
     
@@ -34,8 +38,9 @@ var fight = function (enemy) {
     if (promptFight === "fight" || promptFight === "FIGHT") {
       // remove enemy's health by subtracting the amount set in the playerInfo.attack variable    
       var damage = randomNumber(playerInfo.attack - 3, playerInfo.attack);
-    
-      enemy.Health = Math.max(0, enemy.Health - damage);
+        
+      enemy.health = Math.max(0, enemy.health - damage);
+      console.log("enemy health ---->", enemy.health);
     // Log a resulting message to the console so we know that it worked.
     console.log(
         playerInfo.name + " attacked " + enemy.name + ". " + enemy.name + " now has " + enemy.health + " health remaining."
@@ -92,11 +97,7 @@ var fight = function (enemy) {
     }    
 };
 
-var randomNumber = function (min, max) {
-    var value = Math.floor(Math.random() * (21)) + 40;
 
-    return value;
-};
 
 // function to start a new game
 var startGame = function() {
@@ -116,7 +117,7 @@ for(var i = 0; i < enemyInfo.length; i++) {
     var pickedEnemyObj = enemyInfo[i];
 
     // reset enemy.health before starting new fight
-    pickedEnemyObj.health = randomNumber (40, 60);
+    pickedEnemyObj.health = randomNumber(40, 60);
 
     // use debugger to pause script from running and check what's going on at that moment in the code 
     // debugger;
@@ -235,14 +236,17 @@ var playerInfo = {
     var enemyInfo = [
     {
         name: "Roborto",
+        //health: 40,
         attack: randomNumber(10, 14)
     },
     {
         name: "Amy Android",
+        //health: 50,
         attack: randomNumber(10, 14)
     },
     {
         name: "Robo Trumble",
+        //health: 60,
         attack: randomNumber(10, 14)
     }
     ];
@@ -252,10 +256,7 @@ startGame();
 
 // PROBLEMS ATM:
 
-// NEED TO FIX THE GAME SO THE BATTLE ASPECT WORKS NORMALLY
-// ENEMY ROBOT HEALTH IS NOT DECLARED (?) AND FIGHTS ARE SKIPPED OVER
-// INCORRECT VARIABLES (?) FOR "var fight = function (enemy)" CODE BLOCK (?)
-// INCORRECT VARIABLES (?) FOR "var startGame = function()" CODE BLOCK (?)
+
 
 // THINGS THAT WORK FINE ATM:
 
