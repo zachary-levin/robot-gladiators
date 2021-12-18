@@ -21,7 +21,11 @@
     //console.log(enemyNames[i] + " is at " + i + " index");
 //}
 
+var randomNumber = function (min, max) {
+    var value = Math.floor(Math.random() * (max - min + 1) + min);
 
+    return value;
+};
 
 var fight = function (enemy) {
     
@@ -92,11 +96,6 @@ var fight = function (enemy) {
     }    
 };
 
-var randomNumber = function (min, max) {
-    var value = Math.floor(Math.random() * (21)) + 40;
-
-    return value;
-};
 
 // function to start a new game
 var startGame = function() {
@@ -111,6 +110,7 @@ for(var i = 0; i < enemyInfo.length; i++) {
     // let player know what round they are in, remember that arrays start at 0 so it needs to have 1 added to it
     if (playerInfo.health > 0) {
         window.alert("Welcome to Robot Gladiators! Round " + ( i + 1 ) );
+        debugger;
     
     // pick new enemy to fight based on the index of the enemy.name array
     var pickedEnemyObj = enemyInfo[i];
@@ -251,11 +251,6 @@ var playerInfo = {
 startGame();
 
 // PROBLEMS ATM:
-
-// NEED TO FIX THE GAME SO THE BATTLE ASPECT WORKS NORMALLY
-// ENEMY ROBOT HEALTH IS NOT DECLARED (?) AND FIGHTS ARE SKIPPED OVER
-// INCORRECT VARIABLES (?) FOR "var fight = function (enemy)" CODE BLOCK (?)
-// INCORRECT VARIABLES (?) FOR "var startGame = function()" CODE BLOCK (?)
 
 // THINGS THAT WORK FINE ATM:
 
