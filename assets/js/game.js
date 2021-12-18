@@ -14,7 +14,7 @@
 //console.log(enemyNames[2]);
 //console.log(enemyNames.length);
 
-//for(var i = 0; i < enemy.length; i++) {
+//for(var i = 0; i < enemyInfo.length; i++) {
     
     //console.log(enemyNames[i]);
     //console.log(i);
@@ -28,9 +28,9 @@ var randomNumber = function (min, max) {
 };
 
 var fight = function (enemy) {
-    
     // repeat and execute as long as the enemy-robot is alive
-    while(playerInfo.health > 0 && enemy.Health > 0) {
+    while(playerInfo.health > 0 && enemy.health > 0) {
+        console.log("fight function fire ----> " , playerInfo.health + " " + enemy.health);
         var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' or 'SKIP' to choose.");
     
     
@@ -38,8 +38,9 @@ var fight = function (enemy) {
     if (promptFight === "fight" || promptFight === "FIGHT") {
       // remove enemy's health by subtracting the amount set in the playerInfo.attack variable    
       var damage = randomNumber(playerInfo.attack - 3, playerInfo.attack);
-    
-      enemy.Health = Math.max(0, enemy.Health - damage);
+        
+      enemy.health = Math.max(0, enemy.health - damage);
+      console.log("enemy health ---->", enemy.health);
     // Log a resulting message to the console so we know that it worked.
     console.log(
         playerInfo.name + " attacked " + enemy.name + ". " + enemy.name + " now has " + enemy.health + " health remaining."
@@ -97,6 +98,7 @@ var fight = function (enemy) {
 };
 
 
+
 // function to start a new game
 var startGame = function() {
     // reset player stats
@@ -110,13 +112,12 @@ for(var i = 0; i < enemyInfo.length; i++) {
     // let player know what round they are in, remember that arrays start at 0 so it needs to have 1 added to it
     if (playerInfo.health > 0) {
         window.alert("Welcome to Robot Gladiators! Round " + ( i + 1 ) );
-        debugger;
     
     // pick new enemy to fight based on the index of the enemy.name array
     var pickedEnemyObj = enemyInfo[i];
 
     // reset enemy.health before starting new fight
-    pickedEnemyObj.health = randomNumber (40, 60);
+    pickedEnemyObj.health = randomNumber(40, 60);
 
     // use debugger to pause script from running and check what's going on at that moment in the code 
     // debugger;
@@ -235,14 +236,17 @@ var playerInfo = {
     var enemyInfo = [
     {
         name: "Roborto",
+        //health: 40,
         attack: randomNumber(10, 14)
     },
     {
         name: "Amy Android",
+        //health: 50,
         attack: randomNumber(10, 14)
     },
     {
         name: "Robo Trumble",
+        //health: 60,
         attack: randomNumber(10, 14)
     }
     ];
@@ -251,6 +255,8 @@ var playerInfo = {
 startGame();
 
 // PROBLEMS ATM:
+
+
 
 // THINGS THAT WORK FINE ATM:
 
