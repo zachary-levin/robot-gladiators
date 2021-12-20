@@ -149,9 +149,6 @@ var startGame = function() {
     playerInfo.reset();
 
 for(var i = 0; i < enemyInfo.length; i++) {
-
-
-    // NEED TO FIGURE OUT HOW TO MAKE THE GAME OVER ALERT APPEAR
     
     // let player know what round they are in, remember that arrays start at 0 so it needs to have 1 added to it
     if (playerInfo.health > 0) {
@@ -305,36 +302,17 @@ var playerInfo = {
     var enemyInfo = [
     {
         name: "Roborto",
-        //health: 40,
         attack: randomNumber(10, 14)
     },
     {
         name: "Amy Android",
-        //health: 50,
         attack: randomNumber(10, 14)
     },
     {
         name: "Robo Trumble",
-        //health: 60,
         attack: randomNumber(10, 14)
     }
     ];
 
 // start the game when the page loads
 startGame();
-
-// PROBLEMS ATM:
-// PLAYER ROBOT AND ENEMY ROBOT STILL TAKE DAMAGE WHEN PLAYER DOES NOT ENTER A RESPONSE INTO "FIGHT OR SKIP" PROMPT 
-
-
-// THINGS THAT WORK FINE ATM:
-
-// THE NAME ENTRY
-// WELCOME MESSAGE 
-// ROUND START MESSAGE 
-// ROUND OVER MESSAGE
-// SHOP PROMPT MESSAGE
-// GAME COMPLETION SCORE MESSAGE
-// "WOULD YOU LIKE TO PLAY AGAIN?" PROMPT
-// "THANKS FOR PLAYING" MESSAGE
-// GAME ENDS AFTER "THANKS FOR PLAYING MESSAGE"
