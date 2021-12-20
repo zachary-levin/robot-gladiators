@@ -56,10 +56,22 @@ var fightOrSkip = function() {
 
 
 var fight = function (enemy) {
+    // keep track of who goes first
+    var isPlayerTurn = true;
+    
+    // randomly change turn order
+    if (Math.random() > 0.5) {
+        isPlayerTurn = false;
+    }
     // repeat and execute as long as the enemy-robot is alive
     while(playerInfo.health > 0 && enemy.health > 0) {
+
+    if (isPlayerTurn) 
+    //ask player if they'd like to fight or skip using fightOrSkip function
+    {
         console.log("fight function fire ----> " , playerInfo.health + " " + enemy.health);
         if(fightOrSkip()) {
+            //if true, leave fight by breaking loop
             break;
         }
       // remove enemy's health by subtracting the amount set in the playerInfo.attack variable    
@@ -83,7 +95,8 @@ var fight = function (enemy) {
     } else {
         window.alert(enemy.name + " still has " + enemy.health + " health left.");
     }
-    
+    // player gets attacked first
+    } else {
     // remove player's health by subtracting the amount set in the enemy.attack variable
     var damage = randomNumber(enemy.attack - 3, enemy.attack);
 
@@ -95,13 +108,16 @@ var fight = function (enemy) {
     // check player's health
     if (playerInfo.health <= 0) {
         window.alert(playerInfo.name + " has died!");
+        // leave while() loop if player is dead
         break;
     } else {
         window.alert(playerInfo.name + " still has " + playerInfo.health + " health left.");
     }
-
-    // if player chooses to skip
-} 
+  }
+  // switch turn order for next round
+  isPlayerTurn = !isPlayerTurn;
+}; 
+// if player chooses to skip
 /*else if (promptFight === "skip" || promptFight === "SKIP") {
     // confirm player wants to skip
     var confirmSkip = window.confirm("Are you sure you'd like to quit?");
